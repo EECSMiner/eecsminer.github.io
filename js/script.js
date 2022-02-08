@@ -93,6 +93,6 @@ function showFrameSize () {
     var width, height;
     width = Number(runoob_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
     height = Number(runoob_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
-    document.getElementById("framesize").innerHTML = "尺寸: <span>" + width + " x " + height + "</span>";
+    document.getElementById("framesize").innerHTML = "size: <span>" + width + " x " + height + "</span>";
 
 }

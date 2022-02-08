@@ -15,9 +15,9 @@
         <!-- CodeMirror -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.css" />
-        <link rel=stylesheet href="../CodeMirror/doc/docs.css">
-        <script src="../CodeMirror/mode/xml/xml.js"></script>
-        <script src="../CodeMirror/addon/selection/active-line.js"></script>
+        <link rel=stylesheet href="./lib/CodeMirror/docs.css">
+        <script src="./lib/CodeMirror/xml.js"></script>
+        <script src="./lib/CodeMirror/active-line.js"></script>
         <!-- other lib -->
         <link rel="stylesheet" href="./lib/bootstrap.min.css">
         <script src="./lib/split.min.js"></script>
@@ -32,7 +32,7 @@
                 <div id="split-0" class="bg-body rounded shadow-sm" style="width: calc(50% - 5px);">
                   <div class="card">
                     <div class="card-header">
-                      <button type="button" onclick="resetCode()" class="btn btn-outline-secondary">源代码：</button>
+                      <button type="button" onclick="resetCode()" class="btn btn-outline-secondary">code:</button>
                       <button type="button" class="btn btn-success float-end" onclick="submitTryit()" id="submitBTN"> run =>  </button>
                     </div>
                     <div class="card-body">
@@ -75,8 +75,8 @@ p
                 <div class="gutter gutter-horizontal" style="width: 10px;"></div><div id="split-1" class="bg-body rounded shadow-sm" style="width: calc(50% - 5px);">
                   <div class="card">
                     <div class="card-header">
-                      <button type="button" class="btn btn-outline-secondary">运行结果：</button>
-                      <button type="button" class="btn btn-warning float-end" id="framesize">尺寸: <span>307 x 388</span></button>
+                      <button type="button" class="btn btn-outline-secondary">result</button>
+                      <button type="button" class="btn btn-warning float-end" id="framesize">size: <span>307 x 388</span></button>
                     </div>
                     <div class="card-body">
                       <div id="iframewrapper"><iframe id="iframeResult" style="height: 387.6px;" frameborder="0"></iframe></div>
