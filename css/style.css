@@ -30,9 +30,32 @@ body{
     background:center / cover no-repeat url(../images/home-img.png);
 }
 
-.CodeMirror {
+/* .CodeMirror {
     border-top: 1px solid black; 
     border-bottom: 1px solid black;
     /* background-color: black;
     color:rgba(255, 255, 255, .6) */
+/* } */
+
+.split {
+    display: flex;
+    flex-direction: row;
+}
+
+#iframeResult {
+    display: block;
+    height:100%;
+    width:100%;  
+}
+
+.gutter {
+    background-color: #f6f6f6;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    /* embed the image data directly into the document with data URIs */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
 }

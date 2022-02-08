@@ -11,65 +11,80 @@
         <title>Test</title>
         <!-- font awesome cdn link :cdnjs.com -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- lib import-->
         <!-- CodeMirror -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.1/codemirror.min.css" />
         <link rel=stylesheet href="../CodeMirror/doc/docs.css">
         <script src="../CodeMirror/mode/xml/xml.js"></script>
         <script src="../CodeMirror/addon/selection/active-line.js"></script>
+        <!-- other lib -->
+        <link rel="stylesheet" href="./lib/bootstrap.min.css">
+        <script src="./lib/split.min.js"></script>
+        <!-- lib import end-->
+
         <!-- custom css file link -->
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <article>
-            <h2>Active Line Demo</h2>
-            <form>
-            <textarea id="code" name="code">
-<?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"
-    xmlns:georss="http://www.georss.org/georss"
-    xmlns:twitter="http://api.twitter.com">
-<channel>
-    <title>Twitter / codemirror</title>
-    <link>http://twitter.com/codemirror</link>
-    <atom:link type="application/rss+xml"
-            href="http://twitter.com/statuses/user_timeline/242283288.rss" rel="self"/>
-    <description>Twitter updates from CodeMirror / codemirror.</description>
-    <language>en-us</language>
-    <ttl>40</ttl>
-    <item>
-        <title>codemirror: http://cloud-ide.com &#8212; they're springing up like mushrooms. This one
-        uses CodeMirror as its editor.</title>
-        <description>codemirror: http://cloud-ide.com &#8212; they're springing up like mushrooms. This
-        one uses CodeMirror as its editor.</description>
-        <pubDate>Thu, 17 Mar 2011 23:34:47 +0000</pubDate>
-        <guid>http://twitter.com/codemirror/statuses/48527733722058752</guid>
-        <link>http://twitter.com/codemirror/statuses/48527733722058752</link>
-        <twitter:source>web</twitter:source>
-        <twitter:place/>    
-        <title>codemirror: Posted a description of the CodeMirror 2 internals at
-            https://codemirror.net/2/internals.html</title>
-    </item>
-    <item>
-        <title>codemirror: Posted a description of the CodeMirror 2 internals at
-        https://codemirror.net/2/internals.html</title>
-        <description>codemirror: Posted a description of the CodeMirror 2 internals at
-        https://codemirror.net/2/internals.html</description>
-        <pubDate>Wed, 02 Mar 2011 12:15:09 +0000</pubDate>
-        <guid>http://twitter.com/codemirror/statuses/42920879788789760</guid>
-        <link>http://twitter.com/codemirror/statuses/42920879788789760</link>
-        <twitter:source>web</twitter:source>
-        <twitter:place/>
-    </item>
-</channel>
-</rss></textarea>
-            </form>
-            
-            <p>Styling the current cursor line.</p>
-            
-            <button onclick="toggleSelProp()" id="toggleButton">Enable <code>nonEmpty</code> option</button>
-            
-        </article>
+        <div class="container-fluid pb-3">
+            <div class="split">
+                <div id="split-0" class="bg-body rounded shadow-sm" style="width: calc(50% - 5px);">
+                  <div class="card">
+                    <div class="card-header">
+                      <button type="button" onclick="resetCode()" class="btn btn-outline-secondary">源代码：</button>
+                      <button type="button" class="btn btn-success float-end" onclick="submitTryit()" id="submitBTN"> run =>  </button>
+                    </div>
+                    <div class="card-body">
+                      <textarea class="form-control" id="textareaCode" name="textareaCode" style="display: none;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;style&gt;
+body
+{
+    background-color:#d0e4fe;
+}
+h1
+{
+    color:orange;
+    text-align:center;
+}
+p
+{
+    font-family:"Times New Roman";
+    font-size:20px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;CSS 实例!&lt;/h1&gt;
+&lt;p&gt;这是一个段落。&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+    <!-- <div class="CodeMirror cm-s-default" style="width: 100%; height: 387.6px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 239.333px; left: 84px;"><textarea style="position: absolute; bottom: -1em; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0" wrap="off"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 753px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 752px; min-width: 287px; padding-right: 17px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div style="position: relative; outline: currentcolor none medium;" role="presentation"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 84px; top: 600px; height: 24px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-meta">&lt;!DOCTYPE html&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">meta</span> <span class="cm-attribute">charset</span>=<span class="cm-string">"utf-8"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>菜鸟教程(runoob.com)<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">style</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag">body</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation">{</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-property">background-color</span>:<span class="cm-atom">#fff</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag">h1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation">{</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-property">color</span>:<span class="cm-keyword">orange</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-property">text-align</span>:<span class="cm-atom">center</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag">p</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation">{</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-property">font-family</span>:<span class="cm-string">"Times New Roman"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-property">font-size</span>:<span class="cm-number">20px</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">style</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>CSS 实<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>这是一个段落。<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 752px;"></div><div class="CodeMirror-gutters" style="display: none; height: 765px;"></div></div></div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="gutter gutter-horizontal" style="width: 10px;"></div><div id="split-1" class="bg-body rounded shadow-sm" style="width: calc(50% - 5px);">
+                  <div class="card">
+                    <div class="card-header">
+                      <button type="button" class="btn btn-outline-secondary">运行结果：</button>
+                      <button type="button" class="btn btn-warning float-end" id="framesize">尺寸: <span>307 x 388</span></button>
+                    </div>
+                    <div class="card-body">
+                      <div id="iframewrapper"><iframe id="iframeResult" style="height: 387.6px;" frameborder="0"></iframe></div>
+                    </div>
+                  </div>
+                </div>
+            </div>   
+        </div>    
        <!-- custom js file link -->
         <script src="js/script.js"></script> 
     </body>
