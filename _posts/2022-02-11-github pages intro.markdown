@@ -1,5 +1,5 @@
 ---
-# layout: post
+layout: post
 title: 基于 GitHub Pages 的网站介绍
 categories: [GitHub-Pages]
 ---
@@ -41,7 +41,7 @@ h3 {font-size:1.1rem!important;color:green;}
 文件名|存放
 -----|-----
 `_site`|访问网站的根目录，存放生成的html等文件，以及原目录下的css、资源文件等非隐藏文件的副本
-`_Layout`|html布局模板，md扉页中如果指定了layout模板，则会在生成html时加载
+`_layouts`|html布局模板，md扉页中如果指定了layout模板，则会在生成html时加载
 `_includes`|html嵌入文件，可嵌入sidebar、footer等到`_Layout`模板中
 `_config.yml`|各类设置信息，只在启动 jekyll serve 时加载
 `_Plugins`|插件

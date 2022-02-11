@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+<link rel="icon" href="images/favicon.ico">
