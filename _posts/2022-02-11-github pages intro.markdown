@@ -1,7 +1,11 @@
 ---
 layout: post
 title: 基于 GitHub Pages 的网站介绍
-categories: [GitHub-Pages]
+tags: 
+- GitHub Pages
+- jekyll
+- github.io
+categories: GitHub-Pages
 ---
 
 # 简介
@@ -30,7 +34,7 @@ h3 {font-size:1.1rem!important;color:green;}
 
 # Jekyll
 ## 简介
-&emsp;&emsp;[GitHub-Pages](https://pages.github.com/)的后台服务就是由[jekyll](https://jekyllrb.com/)驱动，所以用 jekyll 在 github 部署网站非常方便。在部署好 jekyll 网站后，用户可以直接在`_posts`文件内用Markdown(md)编写自己的网页内容，jekyll 会自动在`_site`文件中生成对应html页面，如果使用了默认的minima主题，会将页面链接到用户主页。详情请移步[jekyll-post](https://jekyllrb.com/docs/posts/)<br>
+&emsp;&emsp;[GitHub-Pages](https://pages.github.com/)的后台服务就是由[jekyll](https://jekyllrb.com/)驱动，所以用 jekyll 在 github 部署网站非常方便。在部署好 jekyll 网站后，用户可以直接在`_posts`文件内用 Markdown(md) 编写自己的网页内容，如果文件名格式为 `YEAR-MONTH-DAY-title.md`，jekyll 会自动在`_site`文件中生成对应html页面，如果使用了默认的minima主题，会将页面链接到用户主页。详情请移步[jekyll-post](https://jekyllrb.com/docs/posts/) 和 [jekyll-tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/) <br>
 
 ## Jekyll网站模板
 &emsp;&emsp;每一个博客都是一个可以借鉴的模板，默认的模板是 minima，您可以移步jekyll官方提供的主题模板网站[jekyllthemes](http://jekyllthemes.org/)，之后将所选模板的`github.io`域名输入到`Settings -> GitHub Pages -> Custom domain`中以设置相应模板，详情请见[themeChooser](https://docs.github.com/en/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)。
@@ -41,12 +45,62 @@ h3 {font-size:1.1rem!important;color:green;}
 文件名|存放
 -----|-----
 `_site`|访问网站的根目录，存放生成的html等文件，以及原目录下的css、资源文件等非隐藏文件的副本
-`_layouts`|html布局模板，md扉页中如果指定了layout模板，则会在生成html时加载
+`_layouts`|html布局模板，md[扉页](#扉页)中如果指定了layout模板，则会在生成html时加载
 `_includes`|html嵌入文件，可嵌入sidebar、footer等到`_Layout`模板中
 `_config.yml`|各类设置信息，只在启动 jekyll serve 时加载
 `_Plugins`|插件
 
 更具体的描述，请见  [jekyll](https://jekyllrb.com/) 
 
+<h2 id="扉页">Markdown 扉页(Front Matter)</h2>
+
+&emsp;&emsp;jekyll 会遍历网站，搜索并处理带扉页的文件。扉页语言为 [YAML](https://yaml.org/),且必须写在两条三重虚线之间：
+```
+---
+layout: post
+title: Java Spring Boot mechanism
+date: 2017-12-03
+tags:
+- Spring Boot
+- Spring
+- Java
+categories: Java
+---
+```
+
+YAML和JSON类似，可用于序列化对象数据，上面的[YAML转JSON](https://www.json2yaml.com/)：
+```
+{
+  "layout": "post",
+  "title": "Java Spring Boot mechanism",
+  "date": "2017-12-03",
+  "tags": [
+    "Spring Boot",
+    "Spring",
+    "Java"
+  ],
+  "categories": "Java"
+}
+```
+想了解更多YAML基本用法的可以移步 [YAML-runoob](https://www.runoob.com/w3cnote/yaml-intro.html) 和 [YAML Tutorial](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started)。<br>
+&emsp;&emsp;在扉页中,可以设置预先定义的全局变量，也可以定义您自己的变量。这些变量会在当前文件以及当前文件所属的layout模板或嵌入(include)的文件中可用。如果您什么也不想设置，只留两行虚线，jekyll 同样会处理该文件。更多请参见 [jekyll-front-matter](https://jekyllrb.com/docs/front-matter/#custom-variables)
+
+
+
+
+<h2 id="Liquid">Liquid 模板语言(template language)</h2>
+
+&emsp;&emsp;[Liquid](https://liquid.bootcss.com/basics/introduction/)是 jekyll 处理和整合html页面的模板语言。它可以将处理逻辑、控制流程或数据嵌入html页面，[jekyll-tutorial-liquid](https://jekyllrb.com/docs/step-by-step/02-liquid/) 中有相关介绍。
+
+ 
+
 <script src="/js/set_link_blank.js"></script>
+
+
+
+
+
+
+
+
 
