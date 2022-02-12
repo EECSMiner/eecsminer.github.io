@@ -1,5 +1,5 @@
 ---
-# layout: post
+layout: post
 title: 基于 GitHub Pages 的网站介绍
 tags: 
 - GitHub Pages
@@ -11,19 +11,23 @@ categories: GitHub-Pages
 # 简介
 &emsp;&emsp;[GitHub-Pages](https://pages.github.com/) 是一个免费的静态页面托管服务， 它可以直接提取 [GitHub](https://www.github.com) 仓库(repo)的 HTML， CSS， 和 JavaScript 文件，将其生成为静态网页。默认的访问域名为：`${github-user-name}.github.io`，其中，`${github-user-name}` 为 github 小写用户名。(可在 repo 的 `Settings -> GitHub Pages` 中激活 GitHub Pages 托管。)<br>
 &emsp;&emsp;[GitHub-Pages](https://pages.github.com/)官方推荐使用 [jekyll](https://jekyllrb.com/)，一种静态网页生成器来定制网页，但这不是必要的。
+<p >{{ layout }}</p>
+
 # 网站实例
 &emsp;&emsp;以下是几个基于[GitHub-Pages](https://pages.github.com/)的个人博客:<br>
 
 <style>
-table{max-width:50%;/*white-space:nowrap;*/}
+table{
+    display: inline-block;
+    flex-wrap: wrap;
+    white-space:flex wrap;
+    border:none}
 h2 {font-size:1.25rem!important;color:blue;}
 h3 {font-size:1.1rem!important;color:green;}
 </style>
 
-
-
 |blog|code repo|
-|-----|-----|
+|:-----|-----|
 |[南峰子的技术博客](https://southpeak.github.io/)|[github repo](https://github.com/southpeak/southpeak.github.com)|
 |[god-jiang's blog](https://god-jiang.github.io/)|[github repo](https://github.com/god-jiang/god-jiang.github.io)|
 |[jackycheng86's blog](https://jackycheng86.github.io/)|[github repo](https://github.com/jackycheng86/jackycheng86.github.io)|
@@ -90,9 +94,30 @@ YAML和JSON类似，可用于序列化对象数据，上面的[YAML转JSON](http
 
 <h2 id="Liquid">Liquid 模板语言(template language)</h2>
 
-&emsp;&emsp;[Liquid](https://liquid.bootcss.com/basics/introduction/)是 jekyll 处理和整合html页面的模板语言。它可以将处理逻辑、控制流程或数据嵌入html页面，[jekyll-tutorial-liquid](https://jekyllrb.com/docs/step-by-step/02-liquid/) 中有相关介绍。
+&emsp;&emsp;[Liquid](https://liquid.bootcss.com/basics/introduction/)是 jekyll 处理和整合html页面的模板语言。它可以将处理逻辑、控制流程或数据、变量嵌入html页面，[jekyll-tutorial-liquid](https://jekyllrb.com/docs/step-by-step/02-liquid/) 中有相关介绍。通过 Liquid ，我们就可以利用 jekyll 的全局变量和我们定义的变量
 
- 
+## Jekyll 全局变量
+&emsp;&emsp;Jekyll有些预定义的全局变量，下面我将借用[Liquid](#Liquid)输出他们。
+
+### 当前页 page 对象：
+
+对象|值|作用
+---|---|---
+{% raw %}{{page.title}}{% endraw %}|{{page.title}}|
+{% raw %}{{page.url}}{% endraw %}|{{page.url}}|
+{% raw %}{{page.date}}{% endraw %}|{{page.date}}|
+{% raw %}{{page.id}}{% endraw %}|{{page.id}}|
+{% raw %}{{page.categories}}{% endraw %}|{{page.categories}}|
+{% raw %}{{page.collection}}{% endraw %}|{{page.collection}}|当前文档类型
+{% raw %}{{page.tags}}{% endraw %}|{{page.tags}}|
+{% raw %}{{page.dir}}{% endraw %}|{{page.dir}}|
+{% raw %}{{page.name}}{% endraw %}|{{page.name}}|
+{% raw %}{{page.path}}{% endraw %}|{{page.path}}|
+{% raw %}{{page.previous.title}}{% endraw %}|{{page.previous.title}}|前一个文档
+{% raw %}{{page.next.title}}{% endraw %}|{{page.next.title}}|后一个文档
+
+
+
 
 <script src="/js/set_link_blank.js"></script>
 
