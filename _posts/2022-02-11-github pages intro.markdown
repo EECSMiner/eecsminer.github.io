@@ -1,5 +1,5 @@
 ---
-layout: post
+# layout: post
 title: 基于 GitHub Pages 的网站介绍
 tags: 
 - GitHub Pages
