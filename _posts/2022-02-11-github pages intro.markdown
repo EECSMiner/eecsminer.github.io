@@ -83,7 +83,7 @@ YAML和JSON类似，可用于序列化对象数据，上面的[YAML转JSON](http
 }
 ```
 想了解更多YAML基本用法的可以移步 [YAML-runoob](https://www.runoob.com/w3cnote/yaml-intro.html) 和 [YAML Tutorial](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started)。<br>
-&emsp;&emsp;在扉页中,可以设置预先定义的全局变量，也可以定义您自己的变量。这些变量会在当前文件以及当前文件所属的layout模板或嵌入(include)的文件中可用。如果您什么也不想设置，只留两行虚线，jekyll 同样会处理该文件。更多请参见 [jekyll-front-matter](https://jekyllrb.com/docs/front-matter/#custom-variables)
+&emsp;&emsp;在扉页中,可以设置预先定义的全局变量，也可以定义您自己的变量。这些变量会在当前文件以及当前文件所属的layout模板或嵌入(include)的文件中可用。如果您什么也不想设置，只留两行虚线，jekyll 同样会处理该文件。更多请参见 [jekyll-front-matter](https://jekyllrb.com/docs/front-matter)
 
 
 
