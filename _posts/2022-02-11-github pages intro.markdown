@@ -47,7 +47,7 @@ h3 {font-size:1.1rem!important;color:green;}
 &emsp;&emsp;[GitHub-Pages](https://pages.github.com/)的后台服务就是由[jekyll](https://jekyllrb.com/)驱动，所以用 jekyll 在 github 部署网站非常方便。在部署好 jekyll 网站后，用户可以直接在`_posts`文件内用 Markdown(md) 编写自己的网页内容，如果文件名格式为 `YEAR-MONTH-DAY-title.md`，jekyll 会自动在`_site`文件中生成对应html页面，如果使用了默认的minima主题，会将页面链接到用户主页。详情请移步[jekyll-post](https://jekyllrb.com/docs/posts/) 和 [jekyll-tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/) <br>
 
 ## Jekyll网站模板
-&emsp;&emsp;每一个博客都是一个可以借鉴的模板，默认的模板是 minima，您可以移步jekyll官方提供的主题模板网站[jekyllthemes](http://jekyllthemes.org/)，之后将所选模板的`github.io`域名输入到`Settings -> GitHub Pages -> Custom domain`中以设置相应模板，详情请见[themeChooser](https://docs.github.com/en/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)。
+&emsp;&emsp;每一个博客都是一个可以借鉴的模板，默认的模板是 minima，您可以移步jekyll官方提供的主题模板网站[jekyllthemes](http://jekyllthemes.org/)，或在`repo`的`Settings -> GitHub Pages -> Theme Chooser`中以设置为数不多的几个模板，详情请见[themeChooser](https://docs.github.com/en/pages/getting-started-with-github-pages/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)。
 
 ## Jekyll内部文件作用
 &emsp;&emsp;如果您想定制自己风格的网站，那就需要了解Jekyll网站中`_`开头的内部文件的作用：<br>
