@@ -8,23 +8,29 @@ tags:
 categories: GitHub-Pages
 ---
 
+<style>
+table{
+    display: inline-block;
+    /* flex-wrap: wrap;
+    white-space:flex wrap; */
+    border:none
+    }
+div  .show-items-container{
+    margin:.5rem 0 1rem;
+}
+h2 {font-size:1.25rem!important;color:blue;}
+h3 {font-size:1.1rem!important;color:green;}
+</style>
+
+
 # 简介
 &emsp;&emsp;[GitHub-Pages](https://pages.github.com/) 是一个免费的静态页面托管服务， 它可以直接提取 [GitHub](https://www.github.com) 仓库(repo)的 HTML， CSS， 和 JavaScript 文件，将其生成为静态网页。默认的访问域名为：`${github-user-name}.github.io`，其中，`${github-user-name}` 为 github 小写用户名。(可在 repo 的 `Settings -> GitHub Pages` 中激活 GitHub Pages 托管。)<br>
 &emsp;&emsp;[GitHub-Pages](https://pages.github.com/)官方推荐使用 [jekyll](https://jekyllrb.com/)，一种静态网页生成器来定制网页，但这不是必要的。
-<p >{{ layout }}</p>
+
 
 # 网站实例
 &emsp;&emsp;以下是几个基于[GitHub-Pages](https://pages.github.com/)的个人博客:<br>
 
-<style>
-table{
-    display: inline-block;
-    flex-wrap: wrap;
-    white-space:flex wrap;
-    border:none}
-h2 {font-size:1.25rem!important;color:blue;}
-h3 {font-size:1.1rem!important;color:green;}
-</style>
 
 |blog|code repo|
 |:-----|-----|
@@ -98,6 +104,8 @@ YAML和JSON类似，可用于序列化对象数据，上面的[YAML转JSON](http
 
 ## Jekyll 全局变量
 &emsp;&emsp;Jekyll有些预定义的全局变量，下面我将借用[Liquid](#Liquid)输出他们。
+### 当前页 layout 布局模板：
+&emsp;&emsp;{% raw %}`{{layout}}:`{% endraw %}{{layout}}
 
 ### 当前页 page 对象：
 
@@ -116,8 +124,50 @@ YAML和JSON类似，可用于序列化对象数据，上面的[YAML转JSON](http
 {% raw %}{{page.previous.title}}{% endraw %}|{{page.previous.title}}|前一个文档
 {% raw %}{{page.next.title}}{% endraw %}|{{page.next.title}}|后一个文档
 
+### 网站 site.posts 子对象 post：
 
+<div class="show-items-container">
 
+{% for post in site.posts reversed %}
+{% unless post.previous %}<h1>{{ post.date | date: '%Y' }}</h1>
+<code>{% raw %}{{post.date|date:"%m月%d日"}} [{{post.title}}]({{post.url}})&lt;{{post.categories}}&gt;{% endraw %}</code>
+{% else %}
+{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+{% capture nyear %}{{ post.previous.date | date: '%Y' }}{% endcapture %}
+{% if year != nyear %}<h1>{{ post.date | date: '%Y' }}</h1>{% endif %}
+{% endunless %}
+<div class="post-item">
+    <span class='post-date'>{{ post.date | date: "%m月%d日"}}</span>
+    <a style ="font-size:1rem" class="post-title" href="{{ post.url }}">{{ post.title }}</a>
+    <span class="page-tag">&lt;{{ post.categories }}&gt;</span>
+</div>
+{% endfor %}
+
+</div>
+
+### 网站 site.pages 子对象 page:
+
+<div class="show-items-container">
+<code>{% raw %}[{{page.title}}]({{page.url}}):{{page.collection}}{% endraw %}</code>
+{% for page in site.pages %}
+{% unless page.next %}
+{%if page.date %}<h1>{{ page.date | date: '%Y' }}</h1>{% endif %}
+{% else %}
+{% capture year %}{{ page.date | date: '%Y' }}{% endcapture %}
+{% capture nyear %}{{ page.next.date | date: '%Y' }}{% endcapture %}
+{% if year != nyear %}
+{%if page.date %}<h1>{{ page.date | date: '%Y' }}</h1>{% endif %}
+{% endif %}
+{% endunless %}
+<div class="page-item">
+    <a style ="font-size:1rem"  class="page-title" href="{{ page.url }}">{{ page.name }}</a>
+{%if page.collection %}<span class="page-tag">:{{ page.collection }}</span>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+
+更具体的变量描述，请参见 [jekyll-variables](https://jekyllrb.com/docs/variables/#site-variables)。
 
 <script src="/js/set_link_blank.js"></script>
 
