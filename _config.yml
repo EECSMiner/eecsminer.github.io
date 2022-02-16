@@ -1,38 +1,73 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# 这是个 yaml 文件
+# 这里所有的变量都定义在site对象中，如访问title的方式为{{site.title}}
 
-title: EECS's site
-email: lovetosay2@example.com
+title: try new simplest step 
+email: lovetosay2@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/" # the subpath of your site, e.g. /blog
+  test blog
+baseurl:  # the subpath of your site, e.g. /blog
+assets: 
 url: "https://eecsminer.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  EECSMiner
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
 permalink: /:categories/:title:output_ext
+
+#### Default Attributes
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "sensor"
+     
+
+#### Pagination 单页数目
+paginate: 10
+## generate excerpts for pages
+page_excerpts: true
+excerpt_separator: <!--more-->
+
+#### 插件
+plugins:
+ - jemoji
+ - jekyll-paginate
+ - jekyll-feed
+
+
+#### Image
+imglogo:
+  enable: true             ## display image logo true/false.
+  src: images/universe.svg
+favicon: images/favicon.ico
+banner_img: images/banner.jpg
+
+author:
+  name: sensor
+
+
+
+#### menu
+menu:
+  主页: /
+language: zh-CN
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
