@@ -5,6 +5,7 @@
         {% include _partial/header.html %}
     </header>
     <div id="container">
+
         {{ content }}
         {% assign item = page %}
         {% assign table = true %}
@@ -60,11 +61,11 @@
         {% include _partial/header.html %}
     </header>
     <div id="container">
+
+        {{ content }}
         {% assign item = page %}
         {% assign table = false %}
         {% include _partial/sidebar.html %}
-        {{ content }}
-
     </div>
     <footer>{% include _partial/footer.html %}</footer>
     {% include _partial/after_footer.html %}
