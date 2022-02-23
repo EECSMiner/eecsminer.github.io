@@ -24,14 +24,19 @@ $(document).ready(function(){
       o = $('.openaside');
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
+    // o.css('display', 'block').addClass('fadeIn');
+    // m.addClass('moveMain');
   });
   o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
-    m.removeClass('moveMain');
+    o.children("a").toggleClass("inactive");
+    // a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    // m.removeClass('moveMain');
   });
+//   o.click(function(){
+//     o.css('display', 'none').removeClass('beforeFadeIn');
+//     a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+//     m.removeClass('moveMain');
+//   });
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
@@ -51,7 +56,7 @@ $(document).ready(function(){
     }else{
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+    //   o.css('display', 'none');
       {% if page.layout == 'post' and page.toc != false and site.toc.aside %}
       $('#toc.toc-aside').css('display', 'none');
       {% endif %}
@@ -105,11 +110,12 @@ $(document).ready(function(){
   if(ae.length>0){
    ae.wrap('<div class="video-container" />');
   };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
+//   c.click(function(){
+//     ta.css('display', 'block').addClass('fadeIn');
+//   });
   o.click(function(){
-    ta.css('display', 'none');
+    ta.slideToggle("fast");
+    // ta.css('display', 'none');
   });
   $(window).scroll(function(){
     ta.css("top",Math.max(140,320-$(this).scrollTop()));

@@ -73,8 +73,9 @@ let removeNode = function (link, nodeId) {
     }
 }
 
-let nodeId = ["content_right", "s_wrap"], link = "https://www.baidu.com"
-removeNode(link, nodeId)
+// let nodeId = ["content_right", "s_wrap"], link = "https://www.baidu.com"
+// removeNode(link, nodeId)
+
 // let oldHref = document.location.href;
 // window.onload = function () {
 //     var bodyList = document.querySelector("body")
@@ -95,3 +96,49 @@ removeNode(link, nodeId)
 //     };
 //     observer.observe(bodyList, config);
 // };
+
+function checkRegisterForm () {
+    let forms = document.getElementsByTagName("form")
+    let rel = true;
+    forms
+        .forEach(function (form) {
+            if (form.id === "test-register") {
+                let check = {}, pwd = {}
+                form.children
+                    .forEach(function (input) {
+                        let id = input.id
+                        let str = input.value
+                        switch (id) {
+                            case "username": {
+                                let limit = [3, 10]
+                                let re = new RegExp(`(?=^[a-zA-Z0-9]{${limit[0]},${limit[1]}}$)(?!^[0-9]).*`, "m");
+                                if (re.test(str)) check[id] = true;
+                                break;
+                            }
+                            case "password":
+                            case "password-2": {
+                                let limit = [6, 20]
+                                let re = new RegExp(`^.{${limit[0]},${limit[1]}}$`, "m");
+                                if (re.test(str)) {
+                                    pwd.push(str);
+                                    check[id] = true;
+                                }
+                            }
+                        }
+                    })
+                // check
+                check.forEach(function (e, i) {
+                    if (!e) {
+                        console.log(`the $ist item is wrong!`)
+                        rel = false;
+                    }
+                })
+                if (!(pwd.length === 2 && pwd[0] === pwd[1])) {
+                    console.log("passwords not the same!")
+                    rel = false;
+                }
+            }
+        })
+    return rel;
+}
+

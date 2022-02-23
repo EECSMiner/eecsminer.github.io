@@ -44,7 +44,7 @@ plugins:
 imglogo:
   enable: true             ## display image logo true/false.
   src: images/universe.svg
-favicon: images/favicon.ico
+favicon: images/favicon.svg
 banner_img: images/banner.jpg
 
 author:
